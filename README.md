@@ -1,4 +1,4 @@
-# spring cloud gateway
+# Spring Cloud Gateway
 
 ###### Run est-spring-cloud-gateway will start the embedded Netty
 
