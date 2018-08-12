@@ -1,8 +1,8 @@
 # Spring Cloud Gateway
 
-###### Run est-spring-cloud-gateway will start the embedded Netty
+### Run est-spring-cloud-gateway will start the embedded Netty
 
-###### Testing:
+### Testing:
 
 ###### Send a any http request[POST, DELETE, GET , PUT, PATCH] to http://localhost:9999
 
