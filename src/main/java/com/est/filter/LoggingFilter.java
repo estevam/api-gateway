@@ -16,10 +16,10 @@ public class LoggingFilter implements GatewayFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.info("==> Method:{} ",exchange.getRequest().getMethod().toString());
-        log.info("==> Host:{} ", exchange.getRequest().getURI().getHost().toString());
-        log.info("==> Path:{}",  exchange.getRequest().getURI().getPath().toString());
-        log.info("==> QueryParams:{}", exchange.getRequest().getQueryParams().toString());
+        log.info("Method:{} ",exchange.getRequest().getMethod().toString());
+        log.info("Host:{} ", exchange.getRequest().getURI().getHost().toString());
+        log.info("Path:{}",  exchange.getRequest().getURI().getPath().toString());
+        log.info("QueryParams:{}", exchange.getRequest().getQueryParams().toString());
         return chain.filter(exchange);
 	}
 }
