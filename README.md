@@ -4,8 +4,7 @@
 
 #### Testing:
 
-###### Send a any http request[POST, DELETE, GET , PUT, PATCH] to http://localhost:8888 with follow key and header 
- 
+###### Send a any http request[POST, DELETE, GET , PUT, PATCH] to http://localhost:8888 
+######  Header 
 ###### key: X-CF-Forwarded-Url
-
-###### value: local rest api Ex:  http://localhost:8080/test/hi
+###### value: http://localhost:8080/test/hi (local rest API)
