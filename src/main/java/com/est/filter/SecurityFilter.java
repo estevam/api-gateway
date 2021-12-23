@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 
- * @author estevam.meneses
+ * @author Estevam Meneses
  */
 @Component
 public class SecurityFilter extends SecurityManager implements GatewayFilter {

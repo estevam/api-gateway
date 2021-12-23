@@ -1,7 +1,10 @@
 package com.est.util;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import java.util.Map;
+
+import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.ErrorAttributes;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.Order;
@@ -21,31 +24,33 @@ import reactor.core.publisher.Mono;
 /**
  * @author estevam.meneses
  * 
- * All the request catch by the exception handler will return the HTTP
- * status bad request.
+ *         All the request catch by the exception handler will return the HTTP
+ *         status bad request.
  * 
- * https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/web/reactive/error/AbstractErrorWebExceptionHandler.html
+ *         https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/web/reactive/error/AbstractErrorWebExceptionHandler.html
  */
 @Component
 @Order(-2)
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
 	/**
-	 * Global error web exception handler
+	 * GlobalErrorWebExceptionHandler
 	 * 
-	 * @param errorAttributes
-	 * @param resourceProperties
+	 * @param globalErrorAttributes
 	 * @param applicationContext
-	 * @param configurer
+	 * @param serverCodecConfigurer
 	 */
-	GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, ResourceProperties resourceProperties,
-			ApplicationContext applicationContext, ServerCodecConfigurer configurer) {
-		super(errorAttributes, resourceProperties, applicationContext);
-		this.setMessageWriters(configurer.getWriters());
+	public GlobalErrorWebExceptionHandler(GlobalErrorAttributes globalErrorAttributes,
+			ApplicationContext applicationContext, ServerCodecConfigurer serverCodecConfigurer) {
+		super(globalErrorAttributes, new WebProperties.Resources(), applicationContext);
+		super.setMessageWriters(serverCodecConfigurer.getWriters());
+		super.setMessageReaders(serverCodecConfigurer.getReaders());
 	}
 
 	/**
-	 * Routing errors
+	 * RoutingFunction
+	 * 
+	 * @param errorAttributes
 	 */
 	@Override
 	protected RouterFunction<ServerResponse> getRoutingFunction(ErrorAttributes errorAttributes) {
@@ -59,7 +64,11 @@ public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHan
 	 * @return
 	 */
 	private Mono<ServerResponse> renderErrorResponse(ServerRequest request) {
+
+		final Map<String, Object> errorPropertiesMap = getErrorAttributes(request, ErrorAttributeOptions.defaults());
+
 		return ServerResponse.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)
-				.body(BodyInserters.empty());
+				.body(BodyInserters.fromValue(errorPropertiesMap));
 	}
+
 }

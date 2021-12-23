@@ -8,7 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 
 import reactor.core.publisher.Mono;
-
+/**
+ * 
+ * @author Estevam Meneses
+ * 
+ */
 @Component
 public class LoggingFilter implements GatewayFilter {
 

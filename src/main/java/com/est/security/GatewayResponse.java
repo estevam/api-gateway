@@ -4,7 +4,7 @@ import org.springframework.web.server.ServerWebExchange;
 
 /**
  * 
- * @author estevam.meneses
+ * @author Estevam Meneses
  *
  */
 public class GatewayResponse {

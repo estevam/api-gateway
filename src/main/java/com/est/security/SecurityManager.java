@@ -11,7 +11,7 @@ import com.est.RouteConfig;
 import reactor.core.publisher.Mono;
 
 /**
- * @author estevam.meneses
+ * @author Estevam Meneses
  */
 public abstract class SecurityManager {
 
