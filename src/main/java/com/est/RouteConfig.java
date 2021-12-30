@@ -21,7 +21,7 @@ import com.est.filter.SecurityFilter;
 @Configuration
 public class RouteConfig {
 
-	public static final String FORWARDED_URL = "X-CF-Forwarded-Url";
+	//public static final String FORWARDED_URL = "X-CF-Forwarded-Url";
 	//public static final String PROXY_SIGNATURE = "X-CF-Proxy-Signature";
 	
 	private static final Logger log = LoggerFactory.getLogger(RouteConfig.class);
@@ -33,6 +33,16 @@ public class RouteConfig {
 		log.info("Loading routes...", builder.toString());
 
 		return builder.routes().route(r -> 
+		r.alwaysTrue().filters(f -> {
+			f.filter(securityFilter); // security
+			f.filter(loggingFilter);  // log all requests
+			f.filter(forwardingFilter, ROUTE_TO_URL_FILTER_ORDER + 1);
+
+			return f;
+			
+		}).uri("http://localhost:8888")).build();
+		
+		/**
 		r.header(FORWARDED_URL, ".*")
 				.filters(f -> {
 					f.filter(securityFilter); // security
@@ -41,6 +51,7 @@ public class RouteConfig {
 
 					return f;
 					
-				}).uri("http://localhost:8080")).build();
+				}).uri("http://localhost:8888")).build();
+				*/
 	}
 }

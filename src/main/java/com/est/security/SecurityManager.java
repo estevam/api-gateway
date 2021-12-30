@@ -1,26 +1,36 @@
 package com.est.security;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 
-import com.est.RouteConfig;
+import com.est.cache.EndpointCache;
+import com.est.entity.Endpoint;
 
 import reactor.core.publisher.Mono;
 
 /**
  * @author Estevam Meneses
+ * SecurityManager will validate the request according with requirements
  */
 public abstract class SecurityManager {
 
-	private static final Logger log = LoggerFactory.getLogger(SecurityManager.class);
+	//private static final Logger log = LoggerFactory.getLogger(SecurityManager.class);
 
 	protected GatewayResponse validRequest(ServerWebExchange exchange) {
-		String url = exchange.getRequest().getHeaders().get(RouteConfig.FORWARDED_URL).get(0);
-		log.info("URL :{}", url);
-		return new GatewayResponse(false, exchange, null);
+		//String url = exchange.getRequest().getHeaders().get(RouteConfig.FORWARDED_URL).get(0);
+        String path = exchange.getRequest().getURI().getPath().toString();
+		String method  = exchange.getRequest().getMethod().toString();
+        //log.info("Request: {} {}", path, method);
+        
+        Optional<Endpoint> endpoint =  EndpointCache.getInstance().findEndpoint(method, path);
+        if(endpoint.isPresent()) {
+        	return new GatewayResponse(true, exchange, null);
+        }
+        return new GatewayResponse(false, exchange, "");
+	
 	}
 
 	/**
