@@ -12,25 +12,25 @@ import com.est.entity.Endpoint;
 import reactor.core.publisher.Mono;
 
 /**
- * @author Estevam Meneses
- * SecurityManager will validate the request according with requirements
+ * @author Estevam Meneses SecurityManager will validate the request according
+ *         with requirements
  */
 public abstract class SecurityManager {
 
-	//private static final Logger log = LoggerFactory.getLogger(SecurityManager.class);
+	// private static final Logger log =
+	// LoggerFactory.getLogger(SecurityManager.class);
 
 	protected GatewayResponse validRequest(ServerWebExchange exchange) {
-		//String url = exchange.getRequest().getHeaders().get(RouteConfig.FORWARDED_URL).get(0);
-        String path = exchange.getRequest().getURI().getPath().toString();
-		String method  = exchange.getRequest().getMethod().toString();
-        //log.info("Request: {} {}", path, method);
-        
-        Optional<Endpoint> endpoint =  EndpointCache.getInstance().findEndpoint(method, path);
-        if(endpoint.isPresent()) {
-        	return new GatewayResponse(true, exchange, null);
-        }
-        return new GatewayResponse(false, exchange, "");
-	
+		String path = exchange.getRequest().getURI().getPath().toString();
+		String method = exchange.getRequest().getMethod().toString();
+		// log.info("Request: {} {}", path, method);
+
+		Optional<Endpoint> endpoint = EndpointCache.getInstance().findEndpoint(method, path);
+		if (endpoint.isPresent()) {
+			return new GatewayResponse(true, exchange, null);
+		}
+		return new GatewayResponse(false, exchange, "");
+
 	}
 
 	/**
