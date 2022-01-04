@@ -1,4 +1,4 @@
-package com.est.filter;
+package ca.est.filter;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR;
 
 import java.net.URI;
@@ -12,9 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 
-import com.est.cache.EndpointCache;
-import com.est.entity.Endpoint;
-
+import ca.est.cache.EndpointCache;
+import ca.est.entity.Endpoint;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 /**

@@ -1,4 +1,4 @@
-package com.est.security;
+package ca.est.security;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 
-import com.est.cache.EndpointCache;
-import com.est.entity.Endpoint;
-
+import ca.est.cache.EndpointCache;
+import ca.est.entity.Endpoint;
+import ca.est.entity.GatewayResponse;
 import reactor.core.publisher.Mono;
 
 /**

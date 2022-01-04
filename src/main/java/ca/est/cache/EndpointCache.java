@@ -1,8 +1,8 @@
-package com.est.cache;
+package ca.est.cache;
 import java.util.List;
 import java.util.Optional;
 
-import com.est.entity.Endpoint;
+import ca.est.entity.Endpoint;
 
 /**
  * 

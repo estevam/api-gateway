@@ -1,13 +1,12 @@
 /**
  * 
  */
-package com.est.repository;
+package ca.est.repository;
 
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-import com.est.entity.Endpoint;
-
+import ca.est.entity.Endpoint;
 import reactor.core.publisher.Flux;
 
 /**

@@ -1,4 +1,4 @@
-package com.est.service;
+package ca.est.service;
 
 import java.util.List;
 import java.util.Map.Entry;
@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.server.ServerWebExchange;
 
-import com.est.dao.HttpHeaderScanDAO;
+import ca.est.dao.HttpHeaderScanDAO;
 
 /**
  * 

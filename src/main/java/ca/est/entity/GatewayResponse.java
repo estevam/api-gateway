@@ -1,4 +1,4 @@
-package com.est.security;
+package ca.est.entity;
 
 import org.springframework.web.server.ServerWebExchange;
 

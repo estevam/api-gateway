@@ -1,4 +1,4 @@
-package com.est;
+package ca.est;
 
 import static org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter.ROUTE_TO_URL_FILTER_ORDER;
 
@@ -9,9 +9,9 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.est.filter.LoggingFilter;
-import com.est.filter.RouteForwardingFilter;
-import com.est.filter.SecurityFilter;
+import ca.est.filter.LoggingFilter;
+import ca.est.filter.RouteForwardingFilter;
+import ca.est.filter.SecurityFilter;
 
 
 

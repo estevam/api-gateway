@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.est.util;
+package ca.est.util;
 
 /**
  * @author Estevam Meneses
