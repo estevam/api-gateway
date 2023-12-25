@@ -1,7 +1,7 @@
 # For Java 8, try this
 # FROM openjdk:8-jdk-alpine
 
-# For Java 17, try this
+# For Java 21, try this
 FROM openjdk:latest
 
 # Refer to Maven build -> finalName
