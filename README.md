@@ -3,9 +3,9 @@
 #### Spring Cloud Gateway provides a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as security, monitoring, metrics, and resiliency.
 
 #### Dependency version 
-######Java 21
-######Spring Boot 3.2.1
-######Spring Cloud 2023.0.0	
+###### Java 21
+###### Spring Boot 3.2.1
+###### Spring Cloud 2023.0.0	
 		
 ##### Application router start will create on H2 the table 'endpoint' and insert follow row.
 
