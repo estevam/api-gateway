@@ -7,7 +7,7 @@
 ###### Spring Boot 3.2.1
 ###### Spring Cloud 2023.0.0	
 		
-##### Application router start will create on H2 the table 'endpoint' and insert follow row.
+##### The router after starting will create on H2 the table 'endpoint' and insert follow row.
 
 ```
 CREATE TABLE endpoint (
