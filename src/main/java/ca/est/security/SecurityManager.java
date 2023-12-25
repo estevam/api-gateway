@@ -9,21 +9,25 @@ import org.springframework.web.server.ServerWebExchange;
 import ca.est.cache.EndpointCache;
 import ca.est.entity.Endpoint;
 import ca.est.entity.GatewayResponse;
+import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
 
 /**
  * @author Estevam Meneses SecurityManager will validate the request according
  *         with requirements
  */
+@Log4j2
 public abstract class SecurityManager {
-
-	// private static final Logger log =
-	// LoggerFactory.getLogger(SecurityManager.class);
 
 	protected GatewayResponse validRequest(ServerWebExchange exchange) {
 		String path = exchange.getRequest().getURI().getPath().toString();
 		String method = exchange.getRequest().getMethod().toString();
 		// log.info("Request: {} {}", path, method);
+		
+		if(path.contains("h2")) {
+			log.info("H2 WEB UI disabled.");
+			return new GatewayResponse(false, exchange, null);
+		}
 
 		Optional<Endpoint> endpoint = EndpointCache.getInstance().findEndpoint(method, path);
 		if (endpoint.isPresent()) {
@@ -47,5 +51,4 @@ public abstract class SecurityManager {
 		}
 		return response.setComplete();
 	}
-
 }

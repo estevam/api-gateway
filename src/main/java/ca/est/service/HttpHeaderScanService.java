@@ -1,11 +1,5 @@
 package ca.est.service;
 
-import java.util.List;
-import java.util.Map.Entry;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.server.ServerWebExchange;
 
 import ca.est.dao.HttpHeaderScanDAO;
@@ -16,19 +10,26 @@ import ca.est.dao.HttpHeaderScanDAO;
  * 
  */
 public class HttpHeaderScanService implements HttpHeaderScanDAO {
-	private static final Logger log = LoggerFactory.getLogger(HttpHeaderScanService.class);
-	private static final String JNDI = "jndi";
+	//private static final Logger log = LoggerFactory.getLogger(HttpHeaderScanService.class);
+
 
 	public HttpHeaderScanService() {
 		// TODO Auto-generated constructor stub
 	}
 
+
+	@Override
+	public boolean existHeader(ServerWebExchange exchange) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	/**
-	 * Check if request header have JNDI lookup URI format: ${jndi:ldap://...}
-	 * 
+     *
+	 * Header scan
 	 * @param exchange
 	 * @return boolean
-	 */
+	 *
 	public boolean isJndiLookup(ServerWebExchange exchange) {
 		HttpHeaders headers = exchange.getRequest().getHeaders();
 		for (Entry<String, List<String>> header : headers.entrySet()) {
@@ -40,4 +41,5 @@ public class HttpHeaderScanService implements HttpHeaderScanDAO {
 		}
 		return false;
 	}
+	*/
 }

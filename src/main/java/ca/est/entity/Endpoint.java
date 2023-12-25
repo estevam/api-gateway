@@ -8,16 +8,22 @@ import org.springframework.data.annotation.Id;
  * Dec. 29, 2021
  */
 public class Endpoint {
-    @Id
-    private Integer id;
+	@Id
+    private Long id;
+
     private String uri_request;
+
     private String url_destination;
+	
     private boolean enable;
-    private String http_method;
+	
+	private String http_method;
+    
 	public Endpoint() {
 		// TODO Auto-generated constructor stub
 	}
-	public Endpoint(Integer id, String uri_request, String url_destination, boolean enable, String http_method) {
+	
+	public Endpoint(Long id, String uri_request, String url_destination, boolean enable, String http_method) {
 		super();
 		this.id = id;
 		this.uri_request = uri_request;
@@ -28,13 +34,13 @@ public class Endpoint {
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	/**

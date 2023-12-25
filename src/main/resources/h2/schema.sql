@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS endpoint;
 
 CREATE TABLE endpoint (
-  id INT auto_increment  PRIMARY KEY,
+  id BIGINT auto_increment  PRIMARY KEY,
   uri_request VARCHAR(500) NOT NULL,
   url_destination VARCHAR(500) NOT NULL,
   enable BOOLEAN DEFAULT FALSE,

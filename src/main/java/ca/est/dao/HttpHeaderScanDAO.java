@@ -8,5 +8,5 @@ import org.springframework.web.server.ServerWebExchange;
  * Jan. 3, 2022
  */
 public interface HttpHeaderScanDAO {
-	public boolean isJndiLookup(ServerWebExchange exchange);
+	public boolean existHeader(ServerWebExchange exchange);
 }

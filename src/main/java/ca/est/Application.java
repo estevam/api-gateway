@@ -6,8 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.reactive.config.EnableWebFlux;
 /**
- * 
- * @author estevam.meneses
+ * @author Estevam Meneses
  */
 @EnableWebFlux
 @EnableDiscoveryClient

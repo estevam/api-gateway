@@ -26,9 +26,6 @@ public class EndpointCache {
 	}
 
 	public void setEndpointList(List<Endpoint> endpointList) {
-		if(endpointList.size() > 2) {
-			endpointList.clear();
-		}
 		this.endpointList = endpointList;
 	}
 	

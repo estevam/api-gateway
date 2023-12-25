@@ -3,6 +3,7 @@
  */
 package ca.est.repository;
 
+
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
@@ -15,9 +16,9 @@ import reactor.core.publisher.Flux;
  */
 public interface EndpointRepository extends ReactiveCrudRepository<Endpoint, Long> {
 
-    @Query("SELECT * FROM endpoint WHERE url_destination = :urlDestination")
+    @Query("SELECT auto_increment,uri_request,url_destination,enable,http_method FROM endpoint WHERE url_destination = :urlDestination")
     Flux<Endpoint> findByUrlDestination(String urlDestination);
 
-    @Query("SELECT * FROM endpoint WHERE uri_request = :uriRequest")
+    @Query("SELECT auto_increment,uri_request,url_destination,enable,http_method FROM endpoint WHERE uri_request = :uriRequest")
     Flux<Endpoint> findByUriRequest(String uriRequest);
 }

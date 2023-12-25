@@ -22,7 +22,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 /**
- * @author estevam.meneses
+ * @author Estevam Meneses
  * 
  *         All the request catch by the exception handler will return the HTTP
  *         status bad request.

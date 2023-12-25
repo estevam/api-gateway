@@ -16,7 +16,7 @@ import ca.est.filter.SecurityFilter;
 
 
 /**
- * @author estevam.meneses
+ * @author Estevam Meneses
  */
 @Configuration
 public class RouteConfig {
@@ -27,7 +27,7 @@ public class RouteConfig {
 	private static final Logger log = LoggerFactory.getLogger(RouteConfig.class);
 
 	@Bean
-	public RouteLocator customRouteLocator(RouteLocatorBuilder builder,SecurityFilter securityFilter, LoggingFilter loggingFilter,
+	RouteLocator customRouteLocator(RouteLocatorBuilder builder,SecurityFilter securityFilter, LoggingFilter loggingFilter,
 			RouteForwardingFilter forwardingFilter) {
 
 		log.info("Loading routes...", builder.toString());
@@ -41,17 +41,5 @@ public class RouteConfig {
 			return f;
 			
 		}).uri("http://localhost:8888")).build();
-		
-		/**
-		r.header(FORWARDED_URL, ".*")
-				.filters(f -> {
-					f.filter(securityFilter); // security
-					f.filter(loggingFilter);  // log all requests
-					f.filter(forwardingFilter, ROUTE_TO_URL_FILTER_ORDER + 1);
-
-					return f;
-					
-				}).uri("http://localhost:8888")).build();
-				*/
 	}
 }

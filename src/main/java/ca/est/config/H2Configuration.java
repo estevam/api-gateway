@@ -30,7 +30,7 @@ public class H2Configuration {
 	 * @return
 	 */
 	@Bean
-	public ConnectionFactoryInitializer databaseInitializer(ConnectionFactory connectionFactory) {
+	ConnectionFactoryInitializer databaseInitializer(ConnectionFactory connectionFactory) {
 		ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
 		initializer.setConnectionFactory(connectionFactory);
 		CompositeDatabasePopulator populator = new CompositeDatabasePopulator();
