@@ -17,7 +17,9 @@ If you have monetized APIs, you’ll want to connect to a billing system.
 #### Dependency version 
 ###### Java 21
 ###### Spring Boot 3.2.1
+###### WebFlux 6.1.2
 ###### Spring Cloud 2023.0.0	
+###### Spring Gateway 4.1.0
 ###### H2 Database: 2.2.224
 		
 ##### The router after starting will create on H2 the table 'endpoint' and insert follow row.
