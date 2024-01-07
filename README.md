@@ -1,6 +1,18 @@
-# API Router using Spring Cloud Gateway 
+# API gateway using Spring Cloud Gateway 
 
-#### Spring Cloud Gateway provides a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as security, monitoring, metrics, and resiliency.
+####API gateway is an API management tool that sits between a client and a collection of backend services.
+##### Why use an API gateway? 
+- Most enterprise APIs are deployed via API gateways. It’s common for API gateways to handle common tasks that are used across a system of API services, such as user authentication, rate limiting, and statistics.
+
+- At its most basic, an API service accepts a remote request and returns a response. But real life is never that simple. Consider your various concerns when you host large-scale APIs.
+You want to protect your APIs from overuse and abuse, so you use an authentication service and rate limiting. 
+
+- You want to understand how people use your APIs, so you’ve added analytics and monitoring tools.
+If you have monetized APIs, you’ll want to connect to a billing system.
+
+- You may have adopted a microservices architecture, in which case a single request could require calls to dozens of distinct applications.
+
+- Over time you’ll add some new API services and retire others, but your clients will still want to find all your services in the same place.
 
 #### Dependency version 
 ###### Java 21
