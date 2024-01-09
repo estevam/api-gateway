@@ -1,4 +1,4 @@
-package ca.est;
+package ca.est.config;
 
 import static org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter.ROUTE_TO_URL_FILTER_ORDER;
 

@@ -50,6 +50,8 @@ public class SecurityFilter extends SecurityManager implements GatewayFilter {
 		if (gatewayRequest.isValideRequest()) {
 			return chain.filter(exchange.mutate().request(exchange.getRequest()).build());
 		}
+		
+	
 		return this.requestError(gatewayRequest.getExchange(), gatewayRequest.getError());
 	}
 }
