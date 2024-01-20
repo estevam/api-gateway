@@ -45,7 +45,7 @@ http://localhost:8888/blog/api/user [GET]
 ```
 
 ##### The request will route to the microservice running on port 8080.
-#### Ex: uri_request "http://localhost:8888/blog/api/user" will be route to url_destination= "http://localhost:8080/blog/api/user"
+####### Example: uri_request "http://localhost:8888/blog/api/user" will be route to url_destination= "http://localhost:8080/blog/api/user"
 
 ```sh
      http://localhost:8080/blog/api/user [GET]
