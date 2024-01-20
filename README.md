@@ -2,7 +2,7 @@
 
 ##### API gateway is an API management tool that sits between a client and a collection of backend services.
 ##### Why use an API gateway? 
-- Most enterprise APIs are deployed via API gateways. It’s common for API gateways to handle common tasks that are used across a system of API services, such as user authentication, rate limiting, and statistics.
+Most enterprise APIs are deployed via API gateways. It’s common for API gateways to handle common tasks that are used across a system of API services, such as user authentication, rate limiting, and statistics.
 
 - Authentication and authorization. A gateway is your first line of defense against potential attackers that can perform basic security functions: antivirus scanning, token translation, decryption and encryption, validation, and many more.
 
