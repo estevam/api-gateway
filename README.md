@@ -4,11 +4,11 @@
 ##### Why use an API gateway? 
 - Most enterprise APIs are deployed via API gateways. It’s common for API gateways to handle common tasks that are used across a system of API services, such as user authentication, rate limiting, and statistics.
 
-- At its most basic, an API service accepts a remote request and returns a response. But real life is never that simple. Consider your various concerns when you host large-scale APIs.
-You want to protect your APIs from overuse and abuse, so you use an authentication service and rate limiting. 
+- Authentication and authorization. A gateway is your first line of defense against potential attackers that can perform basic security functions: antivirus scanning, token translation, decryption and encryption, validation, and many more.
 
-- You want to understand how people use your APIs, so you’ve added analytics and monitoring tools.
-If you have monetized APIs, you’ll want to connect to a billing system.
+- Log tracing and aggregation. A gateway keeps detailed audit logs used for debugging, reporting, and analytics.
+
+- Rate limiting. A gateway enforces policies against resource overuse (either accidental or deliberate) and allows you to configure API invocation at runtime, so the service is consumed only at the required rate.
 
 - You may have adopted a microservices architecture, in which case a single request could require calls to dozens of distinct applications.
 
@@ -16,7 +16,7 @@ If you have monetized APIs, you’ll want to connect to a billing system.
 
 #### Dependency version 
 ###### Java 21
-###### Spring Boot 3.2.1
+###### Spring Boot 3.2.1	
 ###### WebFlux 6.1.2
 ###### Spring Cloud 2023.0.0	
 ###### Spring Gateway 4.1.0
@@ -44,9 +44,10 @@ http://localhost:8888/blog/api/user [GET]
 
 ```
 
-##### It will route to other microservice running on port 8080.
+##### The request will route to the microservice running on port 8080.
+#### Ex: uri_request "http://localhost:8888/blog/api/user" will be route to url_destination= "http://localhost:8080/blog/api/user"
 
 ```sh
- http://http://localhost:8080/blog/api/user [GET]
+     http://localhost:8080/blog/api/user [GET]
 
 ```
