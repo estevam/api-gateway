@@ -9,3 +9,8 @@
 
 target/
 /.factorypath
+.dbeaver/project-settings.json
+.dbeaver/data-sources.json
+.dbeaver/credentials-config.json
+.dbeaver/.data-sources.json.bak
+.dbeaver/.credentials-config.json.bak
